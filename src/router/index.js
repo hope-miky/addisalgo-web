@@ -1,13 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Dashboard from "../components/DashBoard.vue"
+import ALgorithm from "../components/Algorithm/AlgorithmDashboard.vue"
 
 Vue.use(VueRouter);
 
 const routes = [{
         path: "/",
         name: "home",
-        component: Dashboard
+        component: Dashboard,
+        meta: { transition: 'fade-in-right' },
+    },
+
+    {
+        path: "/Algorithm",
+        name: "Algorithm",
+        component: ALgorithm,
+        meta: { transition: 'fade-in-right' },
     },
 
     /*  {

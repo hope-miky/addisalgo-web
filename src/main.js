@@ -3,8 +3,10 @@ import App from './App.vue'
 import router from "./router"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import VuePageTransition from 'vue-page-transition';
 
 Vue.use(router)
+Vue.use(VuePageTransition)
 Vue.config.productionTip = false
 
 new Vue({
