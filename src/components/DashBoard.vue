@@ -16,7 +16,7 @@
                         <h5 >Algorithms</h5>
                     </div>
                 <div class="card-footer text-monospace">
-                    Searching, Sorting, Stacks, Queues, PathFinding...
+                    Searching, Sorting, PathFinding...
                     <a href="Algorithm" class=" btn stretched-link disabled" style="float: right;"></a>
                      
                 </div>
@@ -34,7 +34,7 @@
                     </div>
 
                     <div class="card-footer text-monospace">
-                        Bags, Arrays, Tupples, LinkedList, Graphs, Trees...
+                        Stack, Queue, Bags, Arrays, Tupples, LinkedList, Graphs, Trees...
                     <a href="#" class=" btn stretched-link disabled" style="float: right;"></a>                     
                 </div>
 
