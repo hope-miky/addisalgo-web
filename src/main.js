@@ -4,6 +4,19 @@ import router from "./router"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VuePageTransition from 'vue-page-transition';
+import { Bar, mixins } from 'vue-chartjs'
+const { reactiveProp } = mixins
+var data, options;
+
+export default {
+    extends: Bar,
+    mixins: [reactiveProp],
+    props: ['options'],
+    mounted() {
+        this.renderChart(data, options)
+    }
+}
+
 
 Vue.use(router)
 Vue.use(VuePageTransition)

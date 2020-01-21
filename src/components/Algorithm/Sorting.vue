@@ -3,28 +3,66 @@
       <div class=" container ">
          <button1 v-on:click="randomNum()" class="btn btn-primary" style="float: right;">Random</button1>
       </div>
-      <div v-for="num in source" :key="source[num]" class=" p-1">
-          <p>{{num}},</p>
-      </div>
+     <ChartView :chartdata="source" :options="options" v-bind:source="source"/>
   </div>
 </template>
 
 <script>
+import ChartView from './ChartView.vue';
+
 export default {
+    components: {
+        ChartView,
+    },
     name: 'Sorting',
     data() {
         return {
-            source: [],
+            options: {
+            responsive: true,
+            maintainAspectRatio: false
+            },
+            source: {
+            labels: ['Random Array values'],
+            datasets: [
+                {
+                    backgroundColor: '#f87979',
+                    data: [40]
+                },
+                {
+                    backgroundColor: '#f87979',
+                    data: [40]
+                },
+                {
+                    backgroundColor: '#f87979',
+                    data: [40]
+                },
+                {
+                    backgroundColor: '#f87979',
+                    data: [40]
+                },
+                {
+                    backgroundColor: '#f87979',
+                    data: [40]
+                },
+            ],
+            },
         }
     },
 
+    mounted () {
+      this.randomNum()
+    },
+
     methods: {
-        randomNum() {
-            for(let i = 0; i < 100; i++){
-                this.source[i] = Math.floor(Math.random() * (100 - 1 + 1) ) + 1;
+         randomNum() {
+            for(let i = 0; i < 5; i++){
+                this.source.datasets[i].data = [Math.floor(Math.random() * (50 - 5 + 1)) + 5];
             }
-            alert(this.source)
-        }
+            //this.renderChart(this.source, this.options)
+            //alert(this.source.datasets[1].data)
+        },
+
+    
     }
 }
 </script>
