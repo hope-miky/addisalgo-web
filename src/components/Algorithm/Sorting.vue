@@ -1,65 +1,46 @@
 <template>
   <div>
       <div class=" container ">
-         <button1 v-on:click="randomNum()" class="btn btn-primary" style="float: right;">Random</button1>
+         <button1 v-on:click.stop="randomNum()" class="btn btn-primary" style="float: right;">Random</button1>
       </div>
-     <ChartView :chartdata="source" :options="options" v-bind:source="source"/>
-  </div>
+        <pure-vue-chart
+            :points="this.points"
+            :width="500"
+            :height="300"
+            :show-y-axis="false"
+            :show-x-axis="true"
+        />  
+        </div>
 </template>
 
 <script>
-import ChartView from './ChartView.vue';
+//import PureChart from './chart/PureChart.vue'
+import PureVueChart from 'pure-vue-chart';
 
 export default {
     components: {
-        ChartView,
+        //PureChart
+        PureVueChart
     },
     name: 'Sorting',
     data() {
         return {
-            options: {
-            responsive: true,
-            maintainAspectRatio: false
-            },
-            source: {
-            labels: ['Random Array values'],
-            datasets: [
-                {
-                    backgroundColor: '#f87979',
-                    data: [40]
-                },
-                {
-                    backgroundColor: '#f87979',
-                    data: [40]
-                },
-                {
-                    backgroundColor: '#f87979',
-                    data: [40]
-                },
-                {
-                    backgroundColor: '#f87979',
-                    data: [40]
-                },
-                {
-                    backgroundColor: '#f87979',
-                    data: [40]
-                },
-            ],
-            },
+            source: [1,2,3,4,5,6,7,8,9],
         }
     },
-
-    mounted () {
-      this.randomNum()
+    
+    props: {
+        points: { type: Array, 
+        default: () => [5,8,9,6,3,4,1,5] 
+        },
     },
 
     methods: {
          randomNum() {
-            for(let i = 0; i < 5; i++){
-                this.source.datasets[i].data = [Math.floor(Math.random() * (50 - 5 + 1)) + 5];
+            for(let i = 0; i < 10; i++){
+                this.points[i] = Math.floor(Math.random() * (50 - 5 + 1)) + 5;
             }
-            //this.renderChart(this.source, this.options)
-            //alert(this.source.datasets[1].data)
+            alert(this.points)
         },
 
     
