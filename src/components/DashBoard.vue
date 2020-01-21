@@ -1,20 +1,19 @@
 <template>
-  <div >
+  <div class="body">
       <NavBar />
 
       <div class="container col-auto m-5 p-5">
           
-    <div class="row">
+    <div class="row mx-md-n5">
             
-        <div class="col-sm">
+        <div class="col-sm px-md-5">
             <div class="container border p-0 shadow">
                 
-                <div class="card-img">
-                    <img src="@/assets/logo.png">
+                <div class="card-img ">
+                    <img class=" card-img-top " src="@/assets/algo.png">
                 </div>
                     <div class="card-body">
                         <h5 >Algorithms</h5>
-                            
                     </div>
                 <div class="card-footer text-monospace">
                     Searching, Sorting, Stacks, Queues, PathFinding...
@@ -24,29 +23,31 @@
             </div>
         </div>
         
-            <div class="col-sm">
+            <div class="col-sm px-md-5">
               <div class="container border p-0 shadow">
-                   
-               <div class="card-img">
-                    <img src="@/assets/logo.png">
-                </div>
+                <div class="card">
+                    <div class="card-img">
+                            <img class=" card-img-top pt-4 pb-2" src="@/assets/tree.png">
+                         </div>
                     <div class="card-body">
-                        <h5>DataStructures</h5>
-                            
+                        <h5>DataStructures</h5>      
                     </div>
 
                     <div class="card-footer text-monospace">
                         Bags, Arrays, Tupples, LinkedList, Graphs, Trees...
-                           <a href="#" class=" btn stretched-link disabled" style="float: right;"></a>                     
+                    <a href="#" class=" btn stretched-link disabled" style="float: right;"></a>                     
                 </div>
+
+                     </div>
             </div>
         </div>
-        <div class="col-sm">
+
+        <div class="col-sm px-md-5">
            <div class="container border p-0 shadow">
                <div class="card">
                    
                    <div class="card-img">
-                    <img src="@/assets/logo.png">
+                    <img class=" card-img-top" src="@/assets/machinelearning.png">
                 </div>
                     <div class="card-body">
                         <h5 > Machine Learnings </h5>
@@ -111,7 +112,9 @@ export default {
     box-shadow: none;
 }
 
-
+.card-img-top {
+    border-radius: 25px;
+}
 
 
 </style>
