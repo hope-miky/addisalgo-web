@@ -5,11 +5,14 @@
        <div class="d-flex" id="wrapper">
 
     <!-- Sidebar -->
-    <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading">Algorithms</div>
+    <div class=" border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading bg-light">Algorithms</div>
       <div class="list-group list-group-flush">
-          <div v-for="item in Elements" :key="item.id">
-            <a v-bind:class="{'is-selected':item.selected}" class="list-group-item list-group-item-action">{{item.name}}</a>
+          <div v-for="item in Elements" :key="item.id" class="">
+            <a v-on:click="sidebarClickHandler(item.id)" 
+            v-bind:class="{'is-selected':item.selected}"
+             class="list-group-item  stretched-link">
+             {{item.name}}</a>
           </div>
         
       </div>
@@ -21,15 +24,30 @@
 
 
       <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-      </div>
+
+           <template v-if="selectedId == 0">
+               <h5 > Id number 0</h5>
+           </template>
+
+           <template v-else-if="selectedId == 1">
+               <h5 > Id number 1</h5>
+           </template>
+
+           <template v-else>
+               <h5 > Id number 2</h5>
+           </template>
+
+
+        </div>
     </div>
-    <!-- /#page-content-wrapper -->
+
+
+
+
+
+
 
   </div>
-  <!-- /#wrapper -->
 
     
 
@@ -46,20 +64,21 @@ export default {
     },
     data() {
         return {
+        selectedId: 0,
         Elements: [
             
             {
-                id: 2,
+                id: 0,
                 name: 'Sorting',
                 selected: true,
             },
             {
-                id: 3,
+                id: 1,
                 name: 'Searching',
                 selected: false,
             },
             {
-                id: 4,
+                id: 2,
                 name: 'Path Finding',
                 selected: false,
             },
@@ -67,7 +86,19 @@ export default {
 
         ]
         }
-    }
+    },
+
+    methods: {
+        sidebarClickHandler(id) {
+            for (let i =0; i < this.Elements.length;i++){
+                if (this.Elements[i].selected){
+                    this.Elements[i].selected = false;
+                }
+            }
+            this.Elements[id].selected = true;
+            this.selectedId = id;
+        },
+    },
 }
 </script>
 
@@ -113,15 +144,14 @@ export default {
 
 #sidebar-wrapper .list-group {
   width: 15rem;
+
 }
+
 
 #page-content-wrapper {
   min-width: 100vw;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-  margin-left: 0;
-}
 
 @media (min-width: 768px) {
   #sidebar-wrapper {
@@ -133,9 +163,7 @@ export default {
     width: 100%;
   }
 
-  #wrapper.toggled #sidebar-wrapper {
-    margin-left: -15rem;
-  }
+ 
 }
 
 .is-selected {
@@ -145,5 +173,6 @@ export default {
 list.notcompleted {
     background: #ebf0f5;
 }
+
 
 </style>
