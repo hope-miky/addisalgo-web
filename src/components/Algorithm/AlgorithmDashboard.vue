@@ -26,15 +26,15 @@
       <div class="container-fluid">
 
            <template v-if="selectedId == 0">
-               <h5 > Id number 0</h5>
+               <Searching />
            </template>
 
            <template v-else-if="selectedId == 1">
-               <h5 > Id number 1</h5>
+               <Sorting />
            </template>
 
            <template v-else>
-               <h5 > Id number 2</h5>
+               <PathFinding />
            </template>
 
 
@@ -57,10 +57,16 @@
 
 <script>
 import NavBar from "../Navbar.vue";
+import Searching from "./Searching.vue";
+import Sorting from "./Sorting.vue";
+import PathFinding from "./PathFinding.vue";
 export default {
     name: 'AlgorithmDashboard',
     components: {
         NavBar,
+        Searching,
+        Sorting,
+        PathFinding,
     },
     data() {
         return {
@@ -69,12 +75,12 @@ export default {
             
             {
                 id: 0,
-                name: 'Sorting',
+                name: 'Searching',
                 selected: true,
             },
             {
                 id: 1,
-                name: 'Searching',
+                name: 'Sorting',
                 selected: false,
             },
             {
