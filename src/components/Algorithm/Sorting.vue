@@ -1,5 +1,17 @@
 <template>
   <div class="small">
+     
+      <div  class="" style="float: left;">
+        <label class="mr-sm-2 sr-only" >Preference</label>
+            <select v-model="SortingType" class="custom-select mr-sm-2">
+                <option value="None" selected disabled>Select Sorting type</option>
+                <div class="dropdown-divider"></div>
+                <option value="Bubble" selected>Bubble Sort</option>
+                <option value="Students">Linear Sort</option>
+               
+            </select>
+    </div>
+      
     <button @click="fillData()" style="float: right;" class="btn btn-info">Randomize Data</button>
     <line-chart :chart-data="datacollection"
       :options="options"
@@ -75,7 +87,6 @@ export default {
           datasets: [
             {
               backgroundColor: '#007079',
-              maxBarThickness: 5,
               hoverBackgroundColor: '#a7460f',
               data: [this.getRandomInt()]
             }, 
@@ -85,7 +96,7 @@ export default {
         for (let i =0; i< 80; i++){
           this.datacollection.datasets.push({
             backgroundColor: '#007079',
-            maxBarThickness: 5,
+            
             hoverBackgroundColor: '#a7460f',
             data: [this.getRandomInt()]
           })
@@ -104,7 +115,8 @@ export default {
 <style>
 
 .small {
-    max-width: 600px;
+    min-width: 100px;
+    min-height: 150px;
     margin:  50px auto;
 }
 </style>
