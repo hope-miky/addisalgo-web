@@ -18,21 +18,40 @@ export default {
       return {
         datacollection:null,
         options: {
+            maintainAspectRatio: false,
+                layout: {
+                    padding: {
+                        left: 0,
+                        right: 0,
+                        top: 0,
+                        bottom: 0
+                    },
+            
+                },
               legend: {
                   display: false
               },
               scales: {
+                  
               xAxes: [{
                   gridLines: {
                       offsetGridLines: true,
                       offset: true,
-
-                  }
+                    color: "rgba(0, 0, 0, 0)",
+                  },
+                  ticks: {         
+                                     
+                  },
               }],
               yAxes: [{
+                  gridLines: {
+                color: "rgba(0, 0, 0, 0)",
+            },
                 ticks: {
+                    beginAtZero:true,
                     suggestedMin: 0,
-                    suggestedMax: 50
+                    suggestedMax: 50,
+                    display: false,
                 }
             }]
           },
@@ -57,6 +76,7 @@ export default {
             {
               backgroundColor: '#007079',
               maxBarThickness: 5,
+              hoverBackgroundColor: '#a7460f',
               data: [this.getRandomInt()]
             }, 
           ]
@@ -65,8 +85,8 @@ export default {
         for (let i =0; i< 80; i++){
           this.datacollection.datasets.push({
             backgroundColor: '#007079',
-            
             maxBarThickness: 5,
+            hoverBackgroundColor: '#a7460f',
             data: [this.getRandomInt()]
           })
         }
