@@ -1,6 +1,5 @@
 <template>
   <div class="small">
-     
       <div  class="" style="float: left;">
         <label class="mr-sm-2 sr-only" >Preference</label>
             <select v-model="SortingType" class="custom-select mr-sm-2">
@@ -11,8 +10,29 @@
                
             </select>
     </div>
+
+     <div class="row col-auto" style="float: right;">
+         
+
+    <div  class=" col-auto" style="float: center; max-width: 100px;">
+        <label class="mr-sm-2 sr-only" >Preference</label>
+            <select v-model="numberOfValues" class="custom-select mr-sm-2">
+                <option value="None" selected disabled>Number of Samples</option>
+                <div class="dropdown-divider"></div>
+                <option value="50">50</option>
+                <option value="100" selected>100</option>
+                <option value="150">150</option>
+                <option value="200">200</option>
+                <option value="250">250</option>
+                <option value="300">300</option>
+               
+            </select>
+    </div>
       
     <button @click="fillData()" style="float: right;" class="btn btn-info">Randomize Data</button>
+
+     </div>
+      
     <line-chart :chart-data="datacollection"
       :options="options"
     ></line-chart>
@@ -27,7 +47,9 @@ export default {
       LineChart
     },
     data () {
+
       return {
+          numberOfValues: 100,
         datacollection:null,
         options: {
             maintainAspectRatio: false,
@@ -93,7 +115,7 @@ export default {
           ]
         };
 
-        for (let i =0; i< 80; i++){
+        for (let i =0; i< this.numberOfValues; i++){
           this.datacollection.datasets.push({
             backgroundColor: '#007079',
             
