@@ -1,11 +1,13 @@
 <template>
   <div class="small">
+      
       <div  class="" style="float: left;">
-        <label class="mr-sm-2 sr-only" >Preference</label>
-            <select v-model="SortingType" class="custom-select mr-sm-2">
-                <option value="None" selected disabled>Select Sorting type</option>
+         
+        <label class="mr-sm-2 sr-only dropdown-header" >Preference</label>
+            <select  class="custom-select mr-sm-2">
+                <option value="" selected disabled>Select Sorting type</option>
                 <div class="dropdown-divider"></div>
-                <option value="Bubble" selected>Bubble Sort</option>
+                <option value="Bubble" >Bubble Sort</option>
                 <option value="Students">Linear Sort</option>
                
             </select>
@@ -17,7 +19,7 @@
     <div  class=" col-auto" style="float: center; max-width: 100px;">
         <label class="mr-sm-2 sr-only" >Preference</label>
             <select v-model="numberOfValues" class="custom-select mr-sm-2">
-                <option value="None" selected disabled>Number of Samples</option>
+                <option value="" disabled>Number of Samples</option>
                 <div class="dropdown-divider"></div>
                 <option value="50">50</option>
                 <option value="100" selected>100</option>
