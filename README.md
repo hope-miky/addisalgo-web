@@ -1,5 +1,5 @@
 # Wellcome to Addis-Algo official website 
-![Sorting Algo display](/docs/images/image2.png)
+![Sorting Algo display](/docs/images/image3.png)
 Addis-Algo-web is an Algorithm visualization web app that uses VueJs as a front-end and NodeJs as a backend main frameworks. The website will help students and other
 professionals to understand some algorithms and Datastructures visually. It also uses Bootstrap to decorate the frontend. Algorithms that power addisalgo are built from scratch without any third party dependencies. but this doesn't mean the project is not entirely independent. here are the dependencies I have used in my project:-
 
