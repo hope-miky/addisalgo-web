@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from "./router"
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import VuePageTransition from 'vue-page-transition';
-import PureVueChart from 'pure-vue-chart';
+
 
 //import { Bar, mixins } from 'vue-chartjs'
 //const { reactiveProp } = mixins
@@ -19,9 +18,7 @@ import PureVueChart from 'pure-vue-chart';
     }
 }
  */
-Vue.use(PureVueChart)
 Vue.use(router)
-Vue.use(VuePageTransition)
 Vue.config.productionTip = false
 
 new Vue({
