@@ -24,7 +24,9 @@ The web app consists of 3 categories
 * Data-structures 
 * Algorithms
 * Machine learning 
-  
+
+![Test Image 3](/docs/image.png)
+
 #### Data-structures 
 This section will consists of some basic data structures like 
 * Stacks
