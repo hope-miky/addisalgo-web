@@ -9,7 +9,6 @@ professionals to understand some algorithms and Datastructures visually. It also
     "core-js": "^3.4.4",
     "jquery": "^3.4.1",
     "popper.js": "^1.16.0",
-    "pure-vue-chart": "^0.3.4",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.5.0",
     "vue-page-transition": "^0.2.2",
