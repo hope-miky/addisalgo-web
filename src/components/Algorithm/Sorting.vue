@@ -38,6 +38,7 @@
     <line-chart :chart-data="datacollection"
       :options="options"
     ></line-chart>
+        <button @click="bubblesort()" class="btn btn-outline-secondary">Start Sorting</button>
   </div>
 </template>
 
@@ -52,6 +53,7 @@ export default {
 
       return {
           numberOfValues: 100,
+          data: [],
         datacollection:null,
         options: {
             maintainAspectRatio: false,
@@ -105,32 +107,38 @@ export default {
       this.fillData()
     },
     methods: {
+ bubblesort() {
+
+    
+},
       fillData () {
-        
+        let temp = 0;
+        this.data[0] = this.getRandomInt();
         this.datacollection = {
           datasets: [
             {
               backgroundColor: '#007079',
               hoverBackgroundColor: '#a7460f',
-              data: [this.getRandomInt()]
+              data: [this.data[0]]
             }, 
           ]
         };
 
         for (let i =0; i< this.numberOfValues; i++){
+          temp = this.getRandomInt();
           this.datacollection.datasets.push({
             backgroundColor: '#007079',
-            
             hoverBackgroundColor: '#a7460f',
-            data: [this.getRandomInt()]
+            data: [temp]
           })
+          this.data.push(temp);
         }
         
-
+        //alert(this.data);
        
       },
       getRandomInt () {
-        return Math.floor(Math.random() * (55 - 10 + 1)) + 10
+        return Math.floor(Math.random() * (55 - 5 + 1)) + 5
       }
     }
   }
