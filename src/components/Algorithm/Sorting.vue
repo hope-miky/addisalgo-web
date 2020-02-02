@@ -1,5 +1,5 @@
 <template>
-  <div class="small">
+  <div class="">
       
       <div  class="" style="float: left;">
          
@@ -21,6 +21,8 @@
             <select v-model="numberOfValues" class="custom-select mr-sm-2">
                 <option value="" disabled>Number of Samples</option>
                 <div class="dropdown-divider"></div>
+                <option value="5">5</option>
+                <option value="10">10</option>
                 <option value="50">50</option>
                 <option value="100" selected>100</option>
                 <option value="150">150</option>
@@ -31,11 +33,11 @@
             </select>
     </div>
       
-    <button @click="fillData()" style="float: right;" class="btn btn-info">Randomize Data</button>
+    <button @click="fillData()" style="float: right;" class="btn btn-info mb-5">Randomize Data</button>
 
      </div>
       
-    <line-chart :chart-data="datacollection"
+    <line-chart class=" pt-5 small" :chart-data="datacollection"
       :options="options"
     ></line-chart>
         <button @click="bubblesort()" class="btn btn-outline-secondary">Start Sorting</button>
@@ -107,12 +109,28 @@ export default {
       this.fillData()
     },
     methods: {
- bubblesort() {
+async bubblesort() {
+   
 
-    
+   for (let i = this.data.length; i > 0; i--) {
+            for (let j = 0; j < i; j++) {
+                if (this.data[j] > this.data[j + 1]) {
+                    [this.data[j], this.data[j + 1]] = [this.data[j + 1], this.data[j]]
+                }
+            } 
+            this.updatewithvalue(this.data)
+            await this.timer(500);  
+        }
+           
+        
+},
+
+ timer(ms) {
+    return new Promise(res => setTimeout(res, ms));
 },
       fillData () {
         let temp = 0;
+        this.data = []
         this.data[0] = this.getRandomInt();
         this.datacollection = {
           datasets: [
@@ -137,8 +155,27 @@ export default {
         //alert(this.data);
        
       },
+      updatewithvalue(source){
+        this.datacollection = {
+          datasets: [
+            {
+              backgroundColor: '#007079',
+              hoverBackgroundColor: '#a7460f',
+              data: [source[0]]
+            }, 
+          ]
+        };
+
+        for (let i =0; i< this.numberOfValues; i++){
+          this.datacollection.datasets.push({
+            backgroundColor: '#007079',
+            hoverBackgroundColor: '#a7460f',
+            data: [source[i]]
+          })
+        }
+      },
       getRandomInt () {
-        return Math.floor(Math.random() * (55 - 5 + 1)) + 5
+        return Math.floor(Math.random() * (100 - 3 + 1)) + 3
       }
     }
   }
@@ -147,8 +184,9 @@ export default {
 <style>
 
 .small {
-    min-width: 100px;
-    min-height: 150px;
+    
+    max-width: 1000px;
+    max-height: 500px;
     margin:  50px auto;
 }
 </style>
