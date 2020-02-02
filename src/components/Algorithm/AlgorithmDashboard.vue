@@ -6,12 +6,12 @@
 
     <!-- Sidebar -->
     <div class=" border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading bg-light">Algorithms</div>
+      <div class="sidebar-heading bg-dark text-light">Algorithms</div>
       <div class="list-group list-group-flush">
           <div v-for="item in Elements" :key="item.id" class="">
             <a v-on:click="sidebarClickHandler(item.id)" 
-            v-bind:class="{'is-selected':item.selected}"
-             class="list-group-item  stretched-link">
+            :class="(item.selected) ? 'is-selected' : 'is-not-selected'"
+             class="list-group-item  stretched-link ">
              {{item.name}}</a>
           </div>
         
@@ -141,21 +141,24 @@ export default {
   -moz-transition: margin .25s ease-out;
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
+  background-color: #343a40;
 }
 
 #sidebar-wrapper .sidebar-heading {
   padding: 0.875rem 1.25rem;
   font-size: 1.2rem;
+  
 }
 
 #sidebar-wrapper .list-group {
   width: 15rem;
-
+  
 }
 
 
 #page-content-wrapper {
   min-width: 100vw;
+  
 }
 
 
@@ -173,11 +176,12 @@ export default {
 }
 
 .is-selected {
-    background: #9cb2c9;
+    background: #ffffff;
 }
 
-list.notcompleted {
-    background: #ebf0f5;
+.is-not-selected {
+    background: #343a40;
+    color: #ffffff
 }
 
 
